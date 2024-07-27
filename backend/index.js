@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    // origin: "http://localhost:5174",
+    origin: "https://ai-chat-modal-frontend.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
