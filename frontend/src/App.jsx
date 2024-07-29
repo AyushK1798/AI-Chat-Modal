@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 function App() {
   return (
     <div className="chat-app">
-      <header className="py-2 px-4 bg-dark text-white">
+      <header className="py-3 px-4 bg-dark text-white sticky-top">
         <h3 className="f-heading ">
           <span className="text-purple">AI Chat</span> Modal
         </h3>

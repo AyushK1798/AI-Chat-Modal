@@ -175,8 +175,8 @@ ul {
 .initial-layout .custom-box {
   cursor: pointer;
   background-color: #fdfdfd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(83, 83, 83, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(186, 186, 186, 0.1);
 }
 
 .initial-layout .custom-box:hover {

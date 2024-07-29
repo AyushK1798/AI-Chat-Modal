@@ -1,174 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import ConversationsCard from "./ConversationsCard";
 import axios from "axios";
-// import ConversationCard from "./ConversationCard";
-
-const convo = [
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-  // {
-  //   who: "Bot",
-  //   content: {
-  //     text: {
-  //       text: "Hello, I am Batman, how can I help you",
-  //     },
-  //   },
-  // },
-];
 
 const ChatApp = () => {
   const [userText, setUserText] = useState("");
-  const [conversations, setConversations] = useState(convo);
+  const [conversations, setConversations] = useState([]);
   const [isTyping, setIsTyping] = useState(false); // State for typing indicator
 
   const resetTextareaHeight = () => {
@@ -287,75 +123,7 @@ const ChatApp = () => {
     <div className="content-box m-3  border bg-white p-3">
       <div className="user-input-container d-flex justify-content-end flex-column">
         {conversations?.length <= 0 ? (
-          // <div className="container">
-          //   <div className="row g-4">
-          //     <div className="col-md-6 card p-4">A</div>
-          //     <div className="col-md-6 card p-4">B</div>
-          //     <div className="col-md-6 card p-4">C</div>
-          //     <div className="col-md-6 card p-4">D</div>
-          //   </div>
-          // </div>
-          // <div className="container text-center">
-          //   <div className="row gy-5 mt-0 mb-4">
-          //     <div className="col-6 mt-4">
-          //       <div className="p-3 border">Custom column padding Custom column padding</div>
-          //     </div>
-          //     <div className="col-6 mt-4">
-          //       <div className="p-3 border">Custom column padding</div>
-          //     </div>
-          //     <div className="col-6 mt-4">
-          //       <div className="p-3 border">Custom column padding</div>
-          //     </div>
-          //     <div className="col-6 mt-4">
-          //       <div className="p-3 border">Custom column padding</div>
-          //     </div>
-          //   </div>
-          // </div>
-          <div className="container initial-layout text-center">
-            <div className="row gy-5 mt-0 mb-5">
-              <div className="col-6 mt-4 d-flex align-items-stretch">
-                <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
-                  <p className="box-title">
-                    <strong>Welcome to Our AI Chat!</strong>
-                  </p>
-                  <p className="box-content">
-                    Not sure where to start? How about saying hello?
-                  </p>
-                </div>
-              </div>
-              <div className="col-6 mt-4 d-flex align-items-stretch">
-                <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
-                  <p className="box-title">
-                    <strong>Ask Us Anything!</strong>
-                  </p>
-                  <p className="box-content">
-                    Have a question? We're here to help. Just type and send!
-                  </p>
-                </div>
-              </div>
-              <div className="col-6 mt-4 d-flex align-items-stretch">
-                <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
-                  <p className="box-title">
-                    <strong>Need Suggestions?</strong>
-                  </p>
-                  <p className="box-content">
-                    We can provide tips or recommendations. Just let us know
-                    what you need.
-                  </p>
-                </div>
-              </div>
-              <div className="col-6 mt-4 d-flex align-items-stretch">
-                <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
-                  <p className="box-title">
-                    <strong>Start Your Conversation</strong>
-                  </p>
-                  <p className="box-content">
-                    Feel free to ask anything or simply say hi to begin!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <InitialLayoutCards />
         ) : (
           <ConversationsCard
             conversations={conversations}
@@ -384,6 +152,56 @@ const ChatApp = () => {
 };
 
 export default ChatApp;
+
+const InitialLayoutCards = () => {
+  return (
+    <div className="container initial-layout text-center">
+      <div className="row gy-5 mt-0 mb-5">
+        <div className="col-6 mt-4 d-flex align-items-stretch">
+          <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
+            <p className="box-title">
+              <strong>Welcome to Our AI Chat!</strong>
+            </p>
+            <p className="box-content">
+              Not sure where to start? How about saying hello?
+            </p>
+          </div>
+        </div>
+        <div className="col-6 mt-4 d-flex align-items-stretch">
+          <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
+            <p className="box-title">
+              <strong>Ask Us Anything!</strong>
+            </p>
+            <p className="box-content">
+              Have a question? We're here to help. Just type and send!
+            </p>
+          </div>
+        </div>
+        <div className="col-6 mt-4 d-flex align-items-stretch">
+          <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
+            <p className="box-title">
+              <strong>Need Suggestions?</strong>
+            </p>
+            <p className="box-content">
+              We can provide tips or recommendations. Just let us know what you
+              need.
+            </p>
+          </div>
+        </div>
+        <div className="col-6 mt-4 d-flex align-items-stretch">
+          <div className="p-3 border custom-box flex-fill d-flex flex-column justify-content-center">
+            <p className="box-title">
+              <strong>Start Your Conversation</strong>
+            </p>
+            <p className="box-content">
+              Feel free to ask anything or simply say hi to begin!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 function ArrowUpIcon(props) {
   return (
