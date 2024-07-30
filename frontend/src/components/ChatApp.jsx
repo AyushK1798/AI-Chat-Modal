@@ -38,7 +38,10 @@ const ChatApp = () => {
         // `https://gaffis.in/gaffis-chatbot/api/dialogflow/textQuery`,
         // "http://localhost:5000/api/dialogflow/textquery",
         // textQueryVariable
-        "http://localhost:3000/api/ai/process",
+
+        import.meta.env.VITE_NODE_ENVIRONMENT === "development"
+          ? "http://localhost:3000/api/ai/process"
+          : import.meta.env.VITE_CHAT_API,
         {
           input: inputText,
         }

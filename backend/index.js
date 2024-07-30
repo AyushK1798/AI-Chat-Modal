@@ -1,6 +1,6 @@
 import express from "express";
 import "dotenv/config";
-import cors from "cors"
+import cors from "cors";
 import bodyParser from "body-parser";
 import aiRoutes from "./routes/aiRoutes.js";
 
@@ -13,7 +13,11 @@ app.use(bodyParser.json());
 app.use(
   cors({
     // origin: "http://localhost:5174",
-    origin: "https://ai-chat-modal-frontend.vercel.app",
+
+    origin:
+      import.meta.env.VITE_NODE_ENVIRONMENT === "development"
+        ? "http://localhost:5174"
+        : "https://ai-chat-modal-frontend.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
