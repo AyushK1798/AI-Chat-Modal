@@ -15,7 +15,7 @@ app.use(
     // origin: "http://localhost:5174",
 
     origin:
-      import.meta.env.VITE_NODE_ENVIRONMENT === "development"
+      process.env.NODE_ENVIRONMENT === "development"
         ? "http://localhost:5174"
         : "https://ai-chat-modal-frontend.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
